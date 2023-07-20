@@ -26,8 +26,39 @@ DATABASE_NAME=apiexchangeDB
 ```
 
 4. Import the MySQL database structure using the provided `apiexchangeDB.sql` file. This will set up the necessary tables to store the exchange rate data.
+   or add this structure to your database:
+```
+   CREATE TABLE `cryptocurrency` (
+  `id` int(11) NOT NULL,
+  `codeID` int(11) NOT NULL,
+  `symbol` varchar(10) NOT NULL,
+  `price_usd` double NOT NULL,
+  `price_mxn` double NOT NULL,
+  `percent_change_24h` double NOT NULL,
+  `percent_change_1h` double NOT NULL,
+  `platform` varchar(20) NOT NULL,
+  `token_address` varchar(70) NOT NULL,
+  `name` varchar(20) NOT NULL,
+  `last_updated` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+```
+```
+CREATE TABLE `fiat` (
+  `id` int(11) NOT NULL,
+  `codeID` int(11) NOT NULL,
+  `symbol` varchar(10) NOT NULL,
+  `price_usd` double NOT NULL,
+  `price_mxn` double NOT NULL,
+  `percent_change_24h` double NOT NULL,
+  `percent_change_1h` double NOT NULL,
+  `platform` varchar(20) NOT NULL,
+  `token_address` varchar(70) NOT NULL,
+  `name` varchar(20) NOT NULL,
+  `last_updated` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+```
 
-5. Once the database is set up, the API is ready to use. You can start making requests to retrieve fiat currency and crypto exchange rate data.
+6. Once the database is set up, the API is ready to use. You can start making requests to retrieve fiat currency and crypto exchange rate data.
 
 Please note that it's crucial to keep your `.env` file secure, as it contains sensitive information like API keys and database credentials. Make sure not to expose it publicly or include it in version control systems.
 
