@@ -54,20 +54,21 @@ This command will execute the `curl` request to the specified API endpoint every
 
 With this cronjob in place, your database will be regularly updated with fresh exchange rate data, while also staying within the API credit limits to prevent exceeding the free tier's allowance.
 
-<section>
+ 
+# Available Endpoints
 
-    <h1>Available Endpoints</h1>
+  The API comes with a number of endpoints where each of them provides different functionality. 
 
-    <p>The API comes with a number of endpoints where each of them provides different functionality.</p>
+To retrieve the latest exchange rate data for all cryptocurrencies. The endpoint is: 
 
-    <p> To retrieve the latest exchange rate data for all cryptocurrencies. The endpoint is: </p> 
+```
+   http://rates.intelector.com/v1/cryptocurrencies 
+```
 
-    <pre><code>http://rates.intelector.com/v1/cryptocurrencies</code></pre>
+Will deliver a JSON response:
 
-    <p>Will deliver a JSON response:</p>
-    
-    <pre><code> 
-    {
+```   
+{
     "data": [
         {
             "id": "1",
@@ -98,19 +99,20 @@ With this cronjob in place, your database will be regularly updated with fresh e
         // Other cryptocurrencies data...
   ]
 }
-      </code></pre>   
+```
 
-      <p> 
-      This JSON response will now contain an array of objects, each representing a different cryptocurrency. The objects will include various details like the cryptocurrency symbol, name, price in USD and MXN, percentage changes in price over the last 1 hour, 24 hours, and the timestamp of the last update.
-      </p>
+This JSON response will now contain an array of objects, each representing a different cryptocurrency. The objects will include various details like the cryptocurrency symbol, name, price in USD and MXN, percentage changes in price over the last 1 hour, 24 hours, and the timestamp of the last update.
+    
+```
+    http://rates.intelector.com/v1/cryptocurrencies/usdt 
+```
 
-      <pre><code>http://rates.intelector.com/v1/cryptocurrencies/usdt</code></pre>
-
-
-   <p>    Will deliver a JSON response with the latest exchange rate for the specified cryptocurrency (USDT in this case). Here's how the JSON response might look like:
-  </p>
-        <pre><code>
-        {
+Will deliver a JSON response with the latest exchange rate for the specified cryptocurrency (USDT in this case). Here's how the JSON response might look like:
+ 
+  
+  ```
+        
+ {
     "data": [
         {
             "id": "3",
@@ -129,7 +131,7 @@ With this cronjob in place, your database will be regularly updated with fresh e
     "code": "200"
 }
 
-</code></pre>
+```
 
-</section>
+ 
 
