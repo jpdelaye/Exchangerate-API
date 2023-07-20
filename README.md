@@ -54,3 +54,82 @@ This command will execute the `curl` request to the specified API endpoint every
 
 With this cronjob in place, your database will be regularly updated with fresh exchange rate data, while also staying within the API credit limits to prevent exceeding the free tier's allowance.
 
+<section>
+
+    <h1>Available Endpoints</h1>
+
+    <p>The API comes with a number of endpoints where each of them provides different functionality.</p>
+
+    <p> To retrieve the latest exchange rate data for all cryptocurrencies. The endpoint is: </p> 
+
+    <pre><code>http://rates.intelector.com/v1/cryptocurrencies</code></pre>
+
+    <p>Will deliver a JSON response:</p>
+    
+    <pre><code> 
+    {
+    "data": [
+        {
+            "id": "1",
+            "codeID": "1",
+            "symbol": "BTC",
+            "price_usd": "29763.383835225",
+            "price_mxn": "501342.47343414",
+            "percent_change_24h": "-0.47498728",
+            "percent_change_1h": "-0.21963587",
+            "platform": "",
+            "token_address": "",
+            "name": "Bitcoin",
+            "last_updated": "2023-07-20 10:30:01"
+        },
+        {
+            "id": "2",
+            "codeID": "52",
+            "symbol": "XRP",
+            "price_usd": "0.79014423139021",
+            "price_mxn": "13.309402772478",
+            "percent_change_24h": "-1.07357777",
+            "percent_change_1h": "-0.27371891",
+            "platform": "",
+            "token_address": "",
+            "name": "XRP",
+            "last_updated": "2023-07-20 10:30:01"
+        },
+        // Other cryptocurrencies data...
+  ]
+}
+      </code></pre>   
+
+      <p> 
+      This JSON response will now contain an array of objects, each representing a different cryptocurrency. The objects will include various details like the cryptocurrency symbol, name, price in USD and MXN, percentage changes in price over the last 1 hour, 24 hours, and the timestamp of the last update.
+      </p>
+
+      <pre><code>http://rates.intelector.com/v1/cryptocurrencies/usdt</code></pre>
+
+
+   <p>    Will deliver a JSON response with the latest exchange rate for the specified cryptocurrency (USDT in this case). Here's how the JSON response might look like:
+  </p>
+        <pre><code>
+        {
+    "data": [
+        {
+            "id": "3",
+            "codeID": "825",
+            "symbol": "USDT",
+            "price_usd": "0.99986625728194",
+            "price_mxn": "16.842017201546",
+            "percent_change_24h": "-0.01136369",
+            "percent_change_1h": "0.00279715",
+            "platform": "Ethereum",
+            "token_address": "0xdac17f958d2ee523a2206206994597c13d831ec7",
+            "name": "Tether",
+            "last_updated": "2023-07-20 10:30:01"
+        }
+    ],
+    "code": "200"
+}
+
+</code></pre>
+
+</section>
+
